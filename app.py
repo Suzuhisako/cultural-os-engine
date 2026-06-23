@@ -4,7 +4,6 @@ import logging
 from flask import Flask, request, jsonify, render_template_string
 from dotenv import load_dotenv
 from google import genai
-from google.genai import types
 from scenario_router import build_precision_engine_prompt
 import io
 from flask import send_file
@@ -68,10 +67,10 @@ def handle_user_cultural_query(user_scenario_input: str, target_country: str) ->
     """
     precision_prompt = build_precision_engine_prompt(user_scenario_input, target_country)
     
-    config = types.GenerateContentConfig(
-        max_output_tokens=8192,
-        tools=[types.Tool(google_search=types.GoogleSearch())]
-    )
+    config = {
+        "max_output_tokens": 8192,
+        "tools": [{"google_search": {}}]
+    }
     
     # 🟢 RETRY CONFIGURATION
     max_retries = 3
@@ -704,10 +703,10 @@ def api_generate():
 
         # ---- STAGE 2: CONFIGURING EXPERT ENGINE + LIVE GOOGLE SEARCH GROUNDING ----
         # Build search grounding configuration layout using types mapping
-        search_config = types.GenerateContentConfig(
-            tools=[{"google_search": {}}],
-            temperature=0.3
-        )
+        search_config = {
+            "tools": [{"google_search": {}}],
+            "temperature": 0.3
+        }
 
         # Call the unified client directly, passing our search configuration
         expert_response = client.models.generate_content(
