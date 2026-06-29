@@ -311,7 +311,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
                         <label for="countrySelect" style="display: block; font-weight: bold; margin-bottom: 0.5rem; color: #b59410;">
                             Target Jurisdiction / Country
                         </label>
-                        <select id="countrySelect" name="country" style="
+                        <input type="text" id="countrySelect" name="country" placeholder="e.g., France, Japan, Brazil..." style="
                             width: 100%; 
                             padding: 0.75rem; 
                             border-radius: 6px; 
@@ -319,21 +319,7 @@ DASHBOARD_HTML = """<!DOCTYPE html>
                             background-color: #fff; 
                             font-size: 1rem;
                             box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-                        ">
-                            <option value="" disabled selected>-- Select a Country --</option>
-                            <option value="United States">United States</option>
-                            <option value="Germany">Germany</option>
-                            <option value="France">France</option>
-                            <option value="Japan">Japan</option>
-                            <option value="United Kingdom">United Kingdom</option>
-                            <option value="Singapore">Singapore</option>
-                            <option value="Australia">Australia</option>
-                            <option value="Brazil">Brazil</option>
-                            <option value="Egypt">Egypt</option>
-                            <option value="Czech">Czech</option>
-                            <option value="Switzerland">Switzerland</option>
-                            <option value="South Korea">South Korea</option>
-                        </select>
+                        " required>
                     </div>
                 </div>
                 <button type="submit" id="submitBtn" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 px-4 rounded-xl text-sm transition-colors shadow-sm flex items-center justify-center gap-2">
