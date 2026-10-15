@@ -71,7 +71,10 @@ The application balances user experience with database accuracy by detaching lay
 Grounding & Mime-Type Design Constraint
 To bypass the API design rule where explicit "text/html" response definitions block search integrations, this application uses Option A Architecture. The core generation engine utilizes the Google Search tool constraint while using a targeted precision_prompt to cleanly construct beautiful markup blocks dynamically.
 
-📄 License
+```
+---
+
+## 📄 License
 This project is open-source and available under the MIT License.  
 
 
